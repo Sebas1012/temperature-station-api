@@ -3,6 +3,7 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'json'
 
+set :bind, '0.0.0.0'
 
 conn = PG.connect(:dbname => ENV['DB_NAME'], :host => ENV['DB_HOST'], :port => ENV['DB_PORT'], :user => ENV['DB_USER'], :password => ENV['DB_PASS'])
 
