@@ -1,7 +1,10 @@
 require 'pg'
 require 'sinatra'
 require 'sinatra/reloader'
+require 'dotenv'
 require 'json'
+
+Dotemv.load('.env')
 
 set :bind, '0.0.0.0'
 set :server, :puma
