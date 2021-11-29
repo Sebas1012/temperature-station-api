@@ -13,4 +13,5 @@ group :production do
     gem 'sinatra', '~> 2.1'
     gem 'pg', '~> 1.2', '>= 1.2.3'
     gem 'puma', '~> 3.4'
+    gem 'json', '~> 2.6', '>= 2.6.1'
 end
