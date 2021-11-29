@@ -1,9 +1,6 @@
 require 'bundler/setup'
-require 'json'
 
-Bundler.require(:production, :development)
-
-Dotenv.load('.env')
+Bundler.require(:production)
 
 set :bind, '0.0.0.0'
 set :server, :puma
