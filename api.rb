@@ -1,10 +1,9 @@
-require 'pg'
-require 'sinatra'
-# require 'sinatra/reloader'
+require 'bundler/setup'
 require 'json'
-# require 'dotenv'
 
-# Dotenv.load('.env')
+Bundler.require(:production, :development)
+
+Dotenv.load('.env')
 
 set :bind, '0.0.0.0'
 set :server, :puma
