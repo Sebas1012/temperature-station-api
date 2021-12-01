@@ -6,7 +6,7 @@ set :bind, '0.0.0.0'
 set :server, :puma
 
 use Rack::Auth::Basic, "Restricted Area" do |username, password|
-  username == ENV['API_USER'] and password == ENV[API_PASS]
+  username == ENV['API_USER'] and password == ENV['API_PASS']
 end
 
 conn = PG.connect(:dbname => ENV['DB_NAME'], :host => ENV['DB_HOST'], :port => ENV['DB_PORT'], :user => ENV['DB_USER'], :password => ENV['DB_PASS'])
