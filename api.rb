@@ -5,9 +5,11 @@ Bundler.require(:production)
 set :bind, '0.0.0.0'
 set :server, :puma
 
-conn = PG.connect(:dbname => ENV['DB_NAME'], :host => ENV['DB_HOST'], :port => ENV['DB_PORT'], :user => ENV['DB_USER'], :password => ENV['DB_PASS'])
+use Rack::Auth::Basic, "Restricted Area" do |username, password|
+  username == ENV['API_USER'] and password == ENV[API_PASS]
+end
 
-p conn.server_version
+conn = PG.connect(:dbname => ENV['DB_NAME'], :host => ENV['DB_HOST'], :port => ENV['DB_PORT'], :user => ENV['DB_USER'], :password => ENV['DB_PASS'])
 
 before do
   content_type :json
