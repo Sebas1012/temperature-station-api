@@ -15,6 +15,10 @@ before do
   content_type :json
 end
 
+get '/' do
+  redirect '/temperature'
+end
+
 # TODO: Solucionar esta "chapuza"
 get '/temperature' do
   res = conn.exec("SELECT * FROM temperature")
